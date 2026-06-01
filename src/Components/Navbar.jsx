@@ -1,9 +1,36 @@
-import React from 'react';
+import { FaPaw } from "react-icons/fa6";
+import { Link, Links, NavLink } from "react-router";
 
 const Navbar = () => {
   return (
-    <div>
-      navbar
+    <div className="navbar  shadow-md px-4 lg:px-10">
+
+      <div className="navbar-start gap-2 items-center">
+        <Link to="/"> <FaPaw className="text-xl " /></Link>
+        <Link to="/" className="text-xl font-bold ">WarmPaws</Link>
+      </div>
+
+
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal gap-6 text-base font-medium">
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/services" >Services</NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/profile" > My Profile </NavLink>
+          </li>
+        </ul>
+      </div>
+
+      <div className="navbar-end gap-3">
+        <button className="btn btn-outline btn-sm">Login</button>
+        <button className="btn btn-sm">Sign Up</button>
+      </div>
     </div>
   );
 };

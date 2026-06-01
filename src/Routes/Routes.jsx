@@ -1,6 +1,9 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router';
 import Root from '../Pages/Root';
+import Home from '../Pages/Home';
+import Services from '../Pages/Services';
+import MyProfile from '../Pages/MyProfile';
 
 
 
@@ -14,11 +17,16 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-
-                
-                element: <div>Hello World boissF</div>
+                Component: Home,
             },
-           
+           {
+                path: '/services',
+                Component: Services,
+            },
+            {
+                path: '/profile',
+                Component: MyProfile,
+            }
 
 
 
