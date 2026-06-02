@@ -1,5 +1,8 @@
-import { FaPaw } from "react-icons/fa6";
+
 import { Link, Links, NavLink } from "react-router";
+import { MdAccountCircle } from "react-icons/md";
+import { FaPaw } from "react-icons/fa";
+
 
 const Navbar = () => {
   return (
@@ -28,8 +31,8 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-end gap-3">
-        <button className="btn btn-outline btn-sm">Login</button>
-        <button className="btn btn-sm">Sign Up</button>
+        <Link to="/login" ><button className="btn btn-outline btn-sm">Login</button></Link>
+        <MdAccountCircle className="text-2xl" />
       </div>
     </div>
   );
