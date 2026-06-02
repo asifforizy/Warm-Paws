@@ -24,15 +24,15 @@ const Card = ({ service }) => {
                     </div>
                     <hr />
 
-                    <div className="flex justify-between ">
+                    <div className="flex justify-between mt-3 ">
                         <h1>Rating: </h1>
-                        <h1 className="border px-2 rounded">⭐ {service.rating}</h1>
+                        <h1 className=" px-2 rounded">⭐ {service.rating}</h1>
                     </div>
 
 
 
                     <div className="card-actions ">
-                        <button className="btn btn-primary w-full hover:bg-base-100 hover:text-primary border-primary">
+                        <button className="btn btn-primary w-full hover:bg-base-100 hover:text-primary border-primary mt-6">
                             View Details
                         </button>
                     </div>

@@ -6,6 +6,7 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import Card from "../Components/Card";
+import Tips from "../Components/Tips";
 
 const Home = () => {
     const services = useLoaderData();
@@ -26,6 +27,37 @@ const Home = () => {
         {
             title: "Healthy Diet",
             description: "Nutritious meals help maintain body temperature.",
+        },
+    ];
+
+    const vets = [
+        {
+            id: 1,
+            name: "Dr. Sarah Johnson",
+            specialization: "Small Animal Specialist",
+            image:
+                "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500",
+        },
+        {
+            id: 2,
+            name: "Dr. Michael Brown",
+            specialization: "Pet Nutrition Expert",
+            image:
+                "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=500",
+        },
+        {
+            id: 3,
+            name: "Dr. Emily Davis",
+            specialization: "Veterinary Surgeon",
+            image:
+                "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=500",
+        },
+        {
+            id: 4,
+            name: "Dr. James Wilson",
+            specialization: "Winter Pet Care Specialist",
+            image:
+                "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=500",
         },
     ];
 
@@ -102,7 +134,10 @@ const Home = () => {
             </section>
 
 
-            
+            <Tips></Tips>
+
+
+
 
         </div>
     );
