@@ -82,7 +82,7 @@ const SignUp = () => {
 
                             <button type='submit' className="btn btn-neutral my-2">Register</button>
 
-                            <p>Already have An Account ? <Link to="/auth/login" className='text-blue-600 hover:underline font-semibold'>Login</Link></p>
+                            <p>Already have An Account ? <Link to="/login" className='text-blue-600 hover:underline font-semibold'>Login</Link></p>
                         </fieldset>
                     </form>
                 </div>

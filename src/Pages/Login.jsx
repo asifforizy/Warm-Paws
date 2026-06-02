@@ -1,16 +1,42 @@
-import { Link } from "react-router";
+import React, { use, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Login = () => {
 
-  
+    const [error , setError] = useState("")
+
+    const {signIn} = use(AuthContext);
+    const location = useLocation();
+
+    const navigate = useNavigate();
+
+    const handleLogin =(e)=>{
+        e.preventDefault();
+        const email = e.target.email.value ;
+        const password = e.target.pass.value ;
+
+        signIn(email, password)
+        .then(res=>{
+            const user = res.user ;
+   
+            navigate(`${location.state? location.state : "/"}`)
+
+        })
+        .catch((error) => {
+    // const errorMessage = error.message;
+    const errorCode = error.code;
+    setError(errorCode);
+});
+    }
     return (
         <div>
             <div className="flex justify-center min-h-screen items-center ">
 
 
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-5">
-                    <h2 className='font-semibold text-2xl text-center '>Login your account</h2>
-                    <form className="card-body">
+                    <h2 className='font-semibold text-2xl text-center '>Login you account</h2>
+                    <form onSubmit={handleLogin} className="card-body">
                         <fieldset className="fieldset">
 
                             {/* email  */}
@@ -20,7 +46,7 @@ const Login = () => {
                             {/* pass  */}
                             <label className="label">Password</label>
                             <input name='pass' type="password" className="input" placeholder="Password" />
-                        
+                            {error && <p className='text-red-500 text-sm'>{error}</p>}
 
 
                             <div><a className="link link-hover">Forgot password?</a></div>

@@ -7,7 +7,7 @@ import { use } from "react";
 
 
 const Navbar = () => {
-  const { user , LogOut} = use(AuthContext);
+  const { user, LogOut } = use(AuthContext);
   const handleLogOut = () => {
     LogOut()
       .then(() => {
