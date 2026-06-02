@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import Card from "../Components/Card";
 import Tips from "../Components/Tips";
+import VetsSection from "../Components/Vets";
 
 const Home = () => {
     const services = useLoaderData();
@@ -135,6 +136,8 @@ const Home = () => {
 
 
             <Tips></Tips>
+            <VetsSection></VetsSection>
+
 
 
 
