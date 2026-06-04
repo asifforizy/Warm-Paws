@@ -1,34 +1,35 @@
-import React, { use, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Login = () => {
 
-    const [error , setError] = useState("")
+    const [error, setError] = useState("")
 
-    const {signIn} = use(AuthContext);
+    const { signIn } = useContext(AuthContext);
     const location = useLocation();
 
     const navigate = useNavigate();
 
-    const handleLogin =(e)=>{
+    const handleLogin = (e) => {
         e.preventDefault();
-        const email = e.target.email.value ;
-        const password = e.target.pass.value ;
+        const email = e.target.email.value;
+        const password = e.target.pass.value;
 
         signIn(email, password)
-        .then(res=>{
-            const user = res.user ;
-   
-            navigate(`${location.state? location.state : "/"}`)
+            .then(res => {
+                const user = res.user;
 
-        })
-        .catch((error) => {
-    // const errorMessage = error.message;
-    const errorCode = error.code;
-    setError(errorCode);
-});
-    }
+                navigate(`${location.state ? location.state : "/"}`)
+
+            })
+            .catch((error) => {
+
+                setError("Invalid email or password!");
+                toast.error("Invalid email or password!");
+            });
+    };
     return (
         <div>
             <div className="flex justify-center min-h-screen items-center ">
@@ -41,7 +42,7 @@ const Login = () => {
 
                             {/* email  */}
                             <label className="label">Email</label>
-                            <input name='email' type="email" className="input" placeholder="Email" required/>
+                            <input name='email' type="email" className="input" placeholder="Email" required />
 
                             {/* pass  */}
                             <label className="label">Password</label>
