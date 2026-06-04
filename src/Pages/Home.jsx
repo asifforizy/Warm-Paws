@@ -128,9 +128,12 @@ const Home = () => {
                 </h2>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                    {services?.map((service) => (
-                        <Card key={service.id} service={service} />
-                    ))}
+                    {services?.
+                        sort((a, b) => b.rating - a.rating).
+                        slice(0, 6).
+                        map((service) => (
+                            <Card key={service.id} service={service} />
+                        ))}
                 </div>
             </section>
 
