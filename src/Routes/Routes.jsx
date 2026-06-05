@@ -7,6 +7,7 @@ import MyProfile from '../Pages/MyProfile';
 import Login from '../Pages/Login';
 import SignUp from '../Pages/SignUp';
 import PrivateRoutes from '../Provider/PrivateRoutes';
+import ServiceDetails from '../Pages/ServiceDetails';
 
 
 
@@ -26,20 +27,29 @@ const router = createBrowserRouter([
             {
                 path: '/services',
                 loader: () => fetch('/data.json'),
-                element: 
-                <PrivateRoutes>
-                    <Services></Services>
-                </PrivateRoutes>
-                
+                element:
+                    <PrivateRoutes>
+                        <Services></Services>
+                    </PrivateRoutes>
+
             },
+
+            {
+                path: '/services/:id',
+                loader: () => fetch('/data.json'),
+                element:<ServiceDetails></ServiceDetails>
+            
+
+            },
+
             {
                 path: '/profile',
-                element: 
-                (<PrivateRoutes>
-                    <MyProfile></MyProfile>
-                </PrivateRoutes>)
+                element:
+                    (<PrivateRoutes>
+                        <MyProfile></MyProfile>
+                    </PrivateRoutes>)
             },
-            
+
             {
                 path: '/login',
                 Component: Login,

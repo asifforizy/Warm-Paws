@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Card = ({ service }) => {
     return (
         <div>
+            <Link to={`/services/${service.serviceId}`}>
             <div key={service.id} className="card bg-base-100 shadow-xl p-5">
                 <figure>
                     <img
@@ -38,6 +40,7 @@ const Card = ({ service }) => {
                     </div>
                 </div>
             </div>
+            </Link>
         </div>
     );
 };
