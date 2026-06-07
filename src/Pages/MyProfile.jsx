@@ -1,6 +1,7 @@
 import React, { use } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { Link } from 'react-router';
+import "animate.css";
 
 const MyProfile = () => {
     const { user } = use(AuthContext);
@@ -15,13 +16,13 @@ const MyProfile = () => {
                             </div>
                         </div>
 
-                        <h2 className="text-3xl font-bold mt-6">{user.displayName}</h2>
+                        <h2 className="text-3xl font-bold mt-6 animate__animated animate__bounce">{user.displayName}</h2>
                         <p className="text-base-content/70 mt-2">{user.email}</p>
                     </div>
 
                     <div className="lg:col-span-2 p-8">
                        <div>
-                            <h1 className="text-3xl font-bold mb-4">My Profile</h1>
+                            <h1 className="text-3xl font-bold mb-4 ">My Profile</h1>
                             <p className="text-lg font-semibold">Name: {user.displayName}</p>
                             <p className="text-lg font-semibold">Email: {user.email}</p>
                             <Link to="/editProfile">
