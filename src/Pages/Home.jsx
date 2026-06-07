@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLoaderData } from "react-router";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -11,18 +13,24 @@ import VetsSection from "../Components/Vets";
 
 const Home = () => {
     const services = useLoaderData();
+    useEffect(() => {
+        AOS.init({
+            duration: 1000, 
+            once: true,
+        });
+    }, []);
 
     return (
         <div className="w-full overflow-x-hidden">
 
-            <section className="px-4 sm:px-8 lg:px-20 xl:px-40 py-10 sm:py-16 lg:py-20">
+            <section   className="px-4 sm:px-8 lg:px-20 xl:px-40 py-10 sm:py-16 lg:py-20">
                 <Swiper
                     modules={[Pagination, Autoplay]}
                     pagination={{ clickable: true }}
                     autoplay={{ delay: 3000 }}
                     loop={true}
                 >
-                    <SwiperSlide>
+                    <SwiperSlide >
                         <div
                             className="hero min-h-[300px] sm:min-h-[400px] lg:min-h-[500px] rounded-xl"
                             style={{
@@ -73,7 +81,7 @@ const Home = () => {
             </section>
 
             <section className="my-10 sm:my-16 lg:my-20 px-4 sm:px-8 lg:px-20 xl:px-40">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-8 sm:mb-10">
+                <h2  data-aos="fade-down" className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-8 sm:mb-10">
                     Popular Winter Care Services
                 </h2>
 
