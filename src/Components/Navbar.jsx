@@ -31,12 +31,12 @@ const Navbar = () => {
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
+          <li>
+            <NavLink to="/about" >About Us</NavLink>
+          </li>
 
           <li>
             <NavLink to="/services" >Services</NavLink>
-          </li>
-          <li>
-            <NavLink to="/about" >About Us</NavLink>
           </li>
 
           <li>
@@ -52,7 +52,7 @@ const Navbar = () => {
         }
 
         {
-          user ? <img src={user.photoURL} alt="Profile" className="w-10 h-10 rounded-full" /> : <MdAccountCircle className="  text-4xl" />
+          user ? <Link to="/profile"> <img src={user.photoURL} alt="Profile" className="w-10 h-10 rounded-full" /> </Link> : <MdAccountCircle className="  text-4xl" />
         }
 
 

@@ -9,6 +9,7 @@ import SignUp from '../Pages/SignUp';
 import PrivateRoutes from '../Provider/PrivateRoutes';
 import ServiceDetails from '../Pages/ServiceDetails';
 import About from '../Pages/About';
+import Edit from '../Pages/Edit';
 
 
 
@@ -38,8 +39,8 @@ const router = createBrowserRouter([
             {
                 path: '/services/:id',
                 loader: () => fetch('/data.json'),
-                element:<ServiceDetails></ServiceDetails>
-            
+                element: <ServiceDetails></ServiceDetails>
+
 
             },
             {
@@ -62,7 +63,13 @@ const router = createBrowserRouter([
             {
                 path: '/signup',
                 Component: SignUp,
+            },
+
+            {
+                path: '/editProfile',
+                Component: Edit,
             }
+
         ]
     },
 ]);

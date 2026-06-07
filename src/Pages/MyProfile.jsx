@@ -1,5 +1,6 @@
 import React, { use } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
+import { Link } from 'react-router';
 
 const MyProfile = () => {
     const { user } = use(AuthContext);
@@ -19,25 +20,16 @@ const MyProfile = () => {
                     </div>
 
                     <div className="lg:col-span-2 p-8">
-                        <h3 className="text-2xl font-bold mb-8">Update Profile Information</h3>
-
-                        <div className="grid gap-6">
-                            <div className="bg-base-200 rounded-2xl p-5">
-                                <p className="text-sm text-base-content/60 mb-1">Name</p>
-                                <p className="font-semibold text-lg">{user.name}</p>
-                            </div>
-
-                            <div className="bg-base-200 rounded-2xl p-5">
-                                <p className="text-sm text-base-content/60 mb-1">Email</p>
-                                <p className="font-semibold text-lg">{user.email}</p>
-                            </div>
+                       <div>
+                            <h1 className="text-3xl font-bold mb-4">My Profile</h1>
+                            <p className="text-lg font-semibold">Name: {user.displayName}</p>
+                            <p className="text-lg font-semibold">Email: {user.email}</p>
+                            <Link to="/editProfile">
+                                <button className="btn btn-primary mt-4">Edit Profile</button>
+                            </Link>
                         </div>
-
-                        <div className="mt-8">
-                            <button className="btn btn-primary">
-                                Update Profile
-                            </button>
-                        </div>
+                       
+                       
                     </div>
                 </div>
             </div>
