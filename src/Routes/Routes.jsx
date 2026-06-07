@@ -10,6 +10,7 @@ import PrivateRoutes from '../Provider/PrivateRoutes';
 import ServiceDetails from '../Pages/ServiceDetails';
 import About from '../Pages/About';
 import Edit from '../Pages/Edit';
+import Loading from '../Pages/Loading';
 
 
 
@@ -24,11 +25,13 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 Component: Home,
-                loader: () => fetch('/data.json')
+                loader: () => fetch('/data.json'),
+                hydrateFallbackElement : <Loading></Loading>
             },
             {
                 path: '/services',
                 loader: () => fetch('/data.json'),
+                hydrateFallbackElement : <Loading></Loading>,
                 element:
                     <PrivateRoutes>
                         <Services></Services>
@@ -39,6 +42,7 @@ const router = createBrowserRouter([
             {
                 path: '/services/:id',
                 loader: () => fetch('/data.json'),
+                hydrateFallbackElement : <Loading></Loading>,
                 element: <ServiceDetails></ServiceDetails>
 
 
@@ -59,15 +63,18 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 Component: Login,
+                hydrateFallbackElement : <Loading></Loading>
             },
             {
                 path: '/signup',
                 Component: SignUp,
+                hydrateFallbackElement : <Loading></Loading>
             },
 
             {
                 path: '/editProfile',
                 Component: Edit,
+                hydrateFallbackElement : <Loading></Loading>
             }
 
         ]
