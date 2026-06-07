@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
+import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 
 
 
@@ -8,6 +9,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 const Login = () => {
 
     const [error, setError] = useState("")
+    const [showPassword, setShowPassword] = useState(false)
 
     const { signIn, signInWithGoogle } = useContext(AuthContext);
     const location = useLocation();
@@ -63,10 +65,25 @@ const Login = () => {
                             <label className="label">Email</label>
                             <input name='email' type="email" className="input" placeholder="Email" required />
 
-                            {/* pass  */}
+                            {/* Password */}
                             <label className="label">Password</label>
-                            <input name='pass' type="password" className="input" placeholder="Password" required />
-                            {error && <p className='text-red-500 text-sm'>{error}</p>}
+                            <div className="relative">
+                                <input
+                                    name='pass'
+                                    type={showPassword ? "text" : "password"}
+                                    className="input w-full pr-10"
+                                    placeholder="Password"
+                                    required
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => setShowPassword(prev => !prev)}
+                                    className="absolute inset-y-0 right-3 flex items-center text-gray-500 hover:text-gray-700"
+                                    aria-label={showPassword ? "Hide password" : "Show password"}
+                                >
+                                    {showPassword ? (<FaRegEyeSlash className="text-xl" />) : (<FaRegEye className="text-xl" />)}
+                                </button>
+                            </div>
 
 
                             <div><a className="link link-hover">Forgot password?</a></div>

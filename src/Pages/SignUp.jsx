@@ -1,11 +1,13 @@
 import React, { use, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
+import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 
 const SignUp = () => {
 
     const [nameError, setNameError] = useState("")
     const { createUser, setUser, updateUser } = use(AuthContext);
+    const [showPassword, setShowPassword] = useState(false)
 
     const navigate = useNavigate();
 
@@ -75,9 +77,25 @@ const SignUp = () => {
                             <label className="label">Email</label>
                             <input name='email' type="email" className="input" placeholder="Email" required />
 
-                            {/* pass  */}
+                            {/* Password */}
                             <label className="label">Password</label>
-                            <input name='password' type="password" className="input" placeholder="Password" required />
+                            <div className="relative">
+                                <input
+                                    name='password'
+                                    type={showPassword ? "text" : "password"}
+                                    className="input w-full pr-10"
+                                    placeholder="Password"
+                                    required
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => setShowPassword(prev => !prev)}
+                                    className="absolute inset-y-0 right-3 flex items-center text-gray-500 hover:text-gray-700"
+                                    aria-label={showPassword ? "Hide password" : "Show password"}
+                                >
+                                    {showPassword ? (<FaRegEyeSlash className="text-xl" />) : (<FaRegEye className="text-xl" />)}
+                                </button>
+                            </div>
 
 
                             <button type='submit' className="btn btn-neutral my-2">Register</button>
