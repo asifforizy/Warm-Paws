@@ -8,6 +8,7 @@ import Login from '../Pages/Login';
 import SignUp from '../Pages/SignUp';
 import PrivateRoutes from '../Provider/PrivateRoutes';
 import ServiceDetails from '../Pages/ServiceDetails';
+import About from '../Pages/About';
 
 
 
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
                 element:<ServiceDetails></ServiceDetails>
             
 
+            },
+            {
+                path: '/about',
+                Component: About,
             },
 
             {
