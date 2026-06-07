@@ -48,7 +48,12 @@ const Navbar = () => {
           user ? <button onClick={handleLogOut} className="btn btn-outline btn-sm">Logout</button> : <Link to="/login" ><button className="btn btn-outline btn-sm">Login</button></Link>
         }
 
-        <MdAccountCircle className="text-2xl" />
+        {
+          user ? <img src={user.photoURL} alt="Profile" className="w-10 h-10 rounded-full" /> : <MdAccountCircle className="  text-4xl" />
+        }
+
+
+
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ const ServiceDetails = () => {
 
     return (
         <div>
-            return (
+           
             <div className="max-w-4xl mx-auto px-4 py-10 space-y-10">
                 <div className="card bg-base-100 shadow-xl p-6">
                     <h1 className="text-3xl font-bold mb-6 text-center">
